@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.community</groupId>
+  <artifactId>CommunitySystem</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>CommunitySystem Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+  </properties>
+
+
+  <dependencies>
+    <!-- 添加对 Servlet 的支持 ( 为编译Servlet类和处理JSP文件而准备 ) -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <!-- scope 的取值为 provided 表示仅在编译阶段中使用  -->
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- MySQL数据库驱动程序  -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.47</version>
+    </dependency>
+
+    <!--添加对jstl标签库的支持-->
+    <dependency>
+      <groupId>javax.servlet.jsp.jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+
+    <finalName>${project.artifactId}</finalName>
+
+    <plugins>
+
+      <!-- Maven Resources Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+
+      <!-- Maven Compiler Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <compilerVersion>${maven.compiler.compilerVersion}</compilerVersion>
+        </configuration>
+      </plugin>
+
+      <!-- Maven Jetty Plugin -->
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.4.14.v20181114</version>
+        <configuration>
+          <httpConnector>
+            <port>8080</port> <!-- 这里指定 jetty 服务的端口号 -->
+          </httpConnector>
+          <useTestClasspath>true</useTestClasspath>
+          <webAppConfig>
+            <contextPath>/</contextPath> <!-- 这里指定在浏览器访问时，当前Web应用的根路径 -->
+
+            <defaultsDescriptor>jetty.xml</defaultsDescriptor>
+
+          </webAppConfig>
+        </configuration>
+      </plugin>
+
+      <!-- Maven Tomcat Plugin -->
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <port>8080</port>
+          <path>/</path>
+          <uriEncoding>${project.build.sourceEncoding}</uriEncoding>
+          <useBodyEncodingForURI>true</useBodyEncodingForURI>
+        </configuration>
+      </plugin>
+
+    </plugins>
+
+  </build>
+
+
+</project>
