@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/register")
@@ -24,9 +25,20 @@ public class RegistrationServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String confirm = request.getParameter("confirm");
+        String code=request.getParameter("identitycode");
 
+        //从session中获取验证码的值
+        HttpSession session=request.getSession();
+        String identityCode= (String) session.getAttribute("IDENTITY_CODE");
 
         //数据校验
+        //检查验证码是否正确
+        if(!identityCode.equalsIgnoreCase(code.trim())){
+            request.setAttribute("error","验证码错误，注册失败！");
+            request.getRequestDispatcher("registration.jsp").forward(request,response);
+            return;
+        }
+
         //检验密码和确认密码输入是否一致
         if(!password.trim().equals(confirm.trim())){//注意 ：这里有个感叹号
             //页面通过重定向到某个页面

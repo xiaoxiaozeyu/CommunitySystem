@@ -91,7 +91,7 @@
             <th>标题</th>
             <th>作者</th>
             <th>发布时间</th>
-            <th>查看详情</th>
+            <th>操作</th>
         </tr>
         </thead>
         <c:forEach items="${list}" var="f">

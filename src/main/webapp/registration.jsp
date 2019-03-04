@@ -35,29 +35,42 @@
     <div class="col-md-8 order-md-1" >
         <form class="nneeds-validation" method="post" action="/register">
 
-
-
-                <div class="mb-3">
-                    <label for="username">用户名</label>
+            <div class="form-group">
+                <label for="username" class="col-sm-2 control-label">用户名</label>
+                <div class="col-sm-10">
                     <input type="text" class="form-control" id="username" name="username" placeholder="username" required>
-                    <br />
-                </div>
 
-                <div class="mb-3">
-                    <label for="password">密码</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-10">
                     <input type="password" class="form-control" id="password" name="password" placeholder="password" required>
-                    <br />
                 </div>
+            </div>
 
-                <div class="mb-3">
-                    <label for="confirm">确认密码</label>
+            <div class="form-group">
+                <label for="confirm" class="col-sm-2 control-label">确认密码</label>
+                <div class="col-sm-10">
                     <input type="password" class="form-control" id="confirm" name="confirm" placeholder="confirm password" required>
-                    <br />
                 </div>
+            </div>
 
-            <input type="submit" class="btn btn-primary btn-sm" value="注册" style="width: 280px">&nbsp;&nbsp;&nbsp;
-            <input type="button" class="btn btn-primary btn-sm" value="返回" onclick="window.location.href='login.jsp'" style="width: 280px">
+            <div class="form-group">
+                <label for="identitycode" class="col-sm-2 control-label">验证码</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" style="width: 260px; vertical-align: middle;display: inline"  id="identitycode" name="identitycode" placeholder="Input IdentityCode" required>&nbsp;&nbsp;&nbsp;
+                    <img src="/identityCode" class="img-fluid" style="vertical-align: middle;display: inline" >
+                </div>
+            </div>
 
+
+
+            <div class="form-group">
+            <input type="submit" class="btn btn-primary btn-sm" value="注册" style="width: 240px">&nbsp;&nbsp;&nbsp;
+            <input type="button" class="btn btn-primary btn-sm" value="返回" onclick="window.location.href='login.jsp'" style="width: 240px">
+            </div>
         </form>
 
     </div>

@@ -83,8 +83,8 @@
                                 <th>选择</th>
                                 <th>标题</th>
                                 <th>作者</th>
-                                <th>正文</th>
                                 <th>发布时间</th>
+                                <th>操作</th>
                             </tr>
                             </thead>
                             <c:forEach items="${myarticle}" var="t">
@@ -93,8 +93,9 @@
                                     <td><input type="checkbox" name="deleteID" id="deleteID"   value="${t.id}"/></td>
                                     <td>${t.title}</td>
                                     <td>${t.authorname}</td>
-                                    <td>${t.content}</td>
                                     <td>${t.publishtime}</td>
+                                    <td><a  class="btn btn-sm btn-info" href="/detail?titleID=${t.id}">详情</a>&nbsp;
+                                        <a  class="btn btn-sm btn-success" href="/modifyPage?titleID=${t.id}">修改</a></td>
                                 </tr>
                                 </tbody>
                             </c:forEach>

@@ -24,7 +24,7 @@ public class ArticleDao {
     }
 
     public List<Article> showMyArticle(String username){
-        String sql="SELECT id,title,content,authorname,publishtime FROM article WHERE authorname="+username;
+        String sql="SELECT id,title,content,authorname,publishtime FROM article WHERE authorname='"+username+"'";
         return getArticles(sql);
     }
 
@@ -32,7 +32,6 @@ public class ArticleDao {
         String sql="SELECT id,title,content,authorname,publishtime FROM article WHERE title LIKE '%"+title+"%'";
         return getArticles(sql);
     }
-
 
     public Article articleDetail(String titleID){
         Article article=new Article();
@@ -53,7 +52,15 @@ public class ArticleDao {
         return i!=0;
     }
 
+    public boolean modifyArticle(Article article){
+        String sql="UPDATE article SET title=? , content=? , publishtime=? WHERE id=?";
+        int i=helper.update(sql,article.getTitle(),article.getContent(),article.getPublishtime(),article.getId());
+        helper.destory();
+        return i==1;
+    }
+
     private List<Article> getArticles(String sql) {
+        System.out.println(sql);
         List<Map<String, Object>> list=helper.query(sql);
         helper.destory();
         List<Article> articles=new ArrayList<>();
