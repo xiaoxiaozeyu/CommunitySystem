@@ -32,9 +32,10 @@
     </div>
 
 
-    <div class="col-md-8 order-md-1" >
+    <div class="col-md-11 order-md-2" style="padding-left: 200px" >
         <form class="nneeds-validation" method="post" action="/register">
 
+           
             <div class="form-group">
                 <label for="username" class="col-sm-2 control-label">用户名</label>
                 <div class="col-sm-10">
@@ -60,16 +61,16 @@
             <div class="form-group">
                 <label for="identitycode" class="col-sm-2 control-label">验证码</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" style="width: 260px; vertical-align: middle;display: inline"  id="identitycode" name="identitycode" placeholder="Input IdentityCode" required>&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="form-control" style="width: 300px; vertical-align: middle;display: inline"  id="identitycode" name="identitycode" placeholder="Input IdentityCode" required>&nbsp;&nbsp;&nbsp;
                     <img src="/identityCode" class="img-fluid" style="vertical-align: middle;display: inline" >
                 </div>
             </div>
 
+            <br>
 
-
-            <div class="form-group">
-            <input type="submit" class="btn btn-primary btn-sm" value="注册" style="width: 240px">&nbsp;&nbsp;&nbsp;
-            <input type="button" class="btn btn-primary btn-sm" value="返回" onclick="window.location.href='login.jsp'" style="width: 240px">
+            <div class="form-group" style="padding-left: 15px">
+            <input type="submit" class="btn btn-success btn-sm" value="注册" style="width: 220px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" class="btn btn-primary btn-sm" value="返回" onclick="window.location.href='login.jsp'" style="width: 220px">
             </div>
         </form>
 
