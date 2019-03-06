@@ -23,6 +23,8 @@
     }
 </script>
 
+<c:remove var="success" scope="session"></c:remove>
+<c:remove var="success" scope="request"></c:remove>
 
 <header>
     <!-- Fixed navbar -->
@@ -35,11 +37,18 @@
         </div>
 
         <div align="right">
-            <a class="nav-link" href="index.jsp">Back</a>
+            <a class="nav-link" href="javascript:window.history.back(-1)">Back</a>
         </div>
+        <c:if test="${not empty user}" >
         <div align="right">
             <a class="nav-link" href="/logout">Sign Out</a>
         </div>
+        </c:if>
+        <c:if test="${empty user}" >
+            <div align="right">
+                <a class="nav-link" href="login.jsp">Login</a>
+            </div>
+        </c:if>
 
     </nav>
 </header>
@@ -53,18 +62,53 @@
     <h2 class="mt-5" align="center">${detail.title}</h2>
     <br>
     <hr>
-    ${detail.content}
-    <hr>
+    <textarea  class="form-control" rows="10" style="background-color:white; resize:none;border: none" disabled="disabled" >${detail.content}</textarea>
+
     <div align="left">
-    <div align="right">来自：${detail.authorname}</div>
+    <div align="right">作者：${detail.authorname}</div>
     <div align="right">时间：${detail.publishtime}</div>
     </div>
+
+
+    <hr />
+
+    <br><br>
+    <c:forEach items="${articleMessage}" var="f">
+        <div>
+            <p>${f.message}</p>
+            <p align="right">发表时间：${f.mdate} 来自：${f.messageperson}</p>
+        </div>
+        <hr />
+    </c:forEach>
+
+
+
+<c:if test="${not empty user}">
+    <h5>我要留言:</h5>
+    <form method="post" action="/uploadMessage">
+        <textarea  class="form-control" rows="5" style="resize:none" name="message"></textarea>
+        <br />
+        <div align="center">
+            <button type="reset" class="btn btn-sm btn-info">清空留言</button>&nbsp&nbsp&nbsp&nbsp
+            <button type="submit" class="btn btn-sm btn-primary">发布留言</button>
+        </div>
+        <br />
+        <input name="articleID" value="${detail.id}" type="hidden" />
+    </form>
+</c:if>
 
 </main>
 
 <c:if test="${not empty detail}">
     <c:remove var="detail" scope="session"></c:remove>
+    <c:remove var="articleMessage" scope="session"></c:remove>
 </c:if>
+
+
+
+
+
+
 <!-- <footer class="footer">
    <div class="container">
      <span class="text-muted">Place sticky footer content here.</span>

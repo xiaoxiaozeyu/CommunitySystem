@@ -41,7 +41,7 @@
 
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="index.jsp">Back</a>
+            <a class="nav-link" href="javascript:window.history.back(-1)">Back</a>
         </li>
     </ul>
     <ul class="navbar-nav px-3">
@@ -90,7 +90,7 @@
                             <c:forEach items="${myarticle}" var="t">
                                 <tbody>
                                 <tr>
-                                    <td><input type="checkbox" name="deleteID" id="deleteID"   value="${t.id}"/></td>
+                                    <td><input type="checkbox"  name="deleteID" id="deleteID"   value="${t.id}"/></td>
                                     <td>${t.title}</td>
                                     <td>${t.authorname}</td>
                                     <td>${t.publishtime}</td>
@@ -100,7 +100,7 @@
                                 </tbody>
                             </c:forEach>
                         </table>
-                        <p><button class="btn btn-sm btn-info" type="submit">删除</button></p>
+                        <p><button class="btn btn-sm btn-danger" type="submit">删除</button></p>
                     </form>
                 </div>
             </div>

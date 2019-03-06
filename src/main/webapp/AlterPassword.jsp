@@ -39,7 +39,7 @@
 
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-            <a class="nav-link" href="index.jsp">Back</a>
+            <a class="nav-link" href="javascript:window.history.back(-1)">Back</a>
         </li>
     </ul>
     <ul class="navbar-nav px-3">

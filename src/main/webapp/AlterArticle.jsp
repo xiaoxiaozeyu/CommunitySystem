@@ -53,7 +53,7 @@
         <div align="center">
             <button type="submit" class="btn btn-sm btn-primary">修改</button>&nbsp&nbsp&nbsp&nbsp
             <button type="reset" class="btn btn-sm btn-info">重置</button>&nbsp&nbsp&nbsp&nbsp
-            <a href="index.jsp"><button type="button" class="btn btn-sm btn-danger">返回</button></a>
+            <a href="javascript:window.history.back(-1)"><button type="button" class="btn btn-sm btn-danger">返回</button></a>
         </div>
         <br />
     </form>

@@ -35,11 +35,18 @@
         </div>
 
         <div align="right">
-            <a class="nav-link" href="index.jsp">Back</a>
+            <a class="nav-link" href="javascript:window.history.back(-1)">Back</a>
         </div>
-        <div align="right">
-            <a class="nav-link" href="/logout">Sign Out</a>
-        </div>
+        <c:if test="${not empty user}" >
+            <div align="right">
+                <a class="nav-link" href="/logout">Sign Out</a>
+            </div>
+        </c:if>
+        <c:if test="${empty user}" >
+            <div align="right">
+                <a class="nav-link" href="login.jsp">Login</a>
+            </div>
+        </c:if>
 
     </nav>
 </header>

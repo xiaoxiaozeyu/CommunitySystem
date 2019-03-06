@@ -69,8 +69,8 @@
             <br>
 
             <div class="form-group" style="padding-left: 15px">
-            <input type="submit" class="btn btn-success btn-sm" value="注册" style="width: 220px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="button" class="btn btn-primary btn-sm" value="返回" onclick="window.location.href='login.jsp'" style="width: 220px">
+            <input type="submit" class="btn btn-success btn-sm" value="注册用户" style="width: 220px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" class="btn btn-primary btn-sm" value="返回登陆" onclick="window.location.href='login.jsp'" style="width: 220px">
             </div>
         </form>
 
