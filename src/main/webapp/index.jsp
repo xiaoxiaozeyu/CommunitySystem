@@ -29,6 +29,8 @@
         alert("${error}");
     }
 </script>
+<c:remove var="success" scope="session"></c:remove>
+<c:remove var="error" scope="session"></c:remove>
 
 <c:if test="${empty list}">
     <c:redirect url="/list"></c:redirect>
@@ -37,7 +39,7 @@
 <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">CommunityArticle</a>
+        <a class="navbar-brand" href="#">Community</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -52,7 +54,7 @@
             <a class="nav-link" href="ManageMyArticle.jsp">MyArticle</a>
         </div>
         <div align="right">
-            <a class="nav-link" href="AlterPassword.jsp">PersonalCentre</a>
+            <a class="nav-link" href="PersonalCenter.jsp">PersonalCentre</a>
         </div>
         <div align="right">
             <a class="nav-link" href="/logout">Sign Out</a>
@@ -74,14 +76,32 @@
     <!--
      <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
      <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>-->
-    <div align="right">
-
+    <c:if test="${not empty user}">
+    <div align="left" style="display:inline-block;width: 400px;height: 60px;">
+        <div style="display:inline-block;width: 52px;height: 52px;"><img src="${user.imgpath}" height="50px" width="50px" class="img-circle"></div>
+        <div style="display:inline-block;width: 200px;height: 52px;"><p style="color: darkgreen;font-weight: bold">&nbsp;&nbsp;欢迎${user.username}!</p></div>
+    </div>
+    <div align="right" style="display:inline-block;width: 480px;height: 60px">
         <form class="form-inline mt-2 mt-md-0" method="post" action="/search">
             <h5 style="color: lightblue">Search By Title：</h5>
             <input class="form-control mr-sm-2" type="text" name="searchtitle" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
+    </c:if>
+
+    <c:if test="${empty user}">
+        <div align="left" style="display:inline-block;width: 400px;height: 60px;">
+
+        </div>
+        <div align="right" style="display:inline-block;width: 480px;height: 60px">
+            <form class="form-inline mt-2 mt-md-0" method="post" action="/search">
+                <h5 style="color: lightblue">Search By Title：</h5>
+                <input class="form-control mr-sm-2" type="text" name="searchtitle" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </c:if>
     <h2 class="mt-5" align="center">All Articles</h2>
     <br>
     <hr>
@@ -110,7 +130,7 @@
 
     </div>
 </main>
-
+<c:remove var="list" scope="session"></c:remove>
 <!-- <footer class="footer">
    <div class="container">
      <span class="text-muted">Place sticky footer content here.</span>

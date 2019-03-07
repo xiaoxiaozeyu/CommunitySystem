@@ -22,6 +22,7 @@
         alert("${success}");
     }
 </script>
+<c:remove var="success" scope="session"></c:remove>
 
 
 <header>
@@ -57,7 +58,7 @@
      <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
      <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>-->
 
-    <h2 class="mt-5" align="center">All Articles</h2>
+    <h2 class="mt-5" align="center">Articles Found</h2>
     <br>
     <hr>
 

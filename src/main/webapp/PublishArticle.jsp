@@ -22,6 +22,7 @@
         alert("${error}");
     }
 </script>
+<c:remove var="error" scope="session"></c:remove>
 
 <header>
     <!-- Fixed navbar -->

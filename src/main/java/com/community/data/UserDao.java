@@ -38,6 +38,7 @@ public class UserDao {
             user.setId((Integer)map.get("id"));
             user.setUsername((String) map.get("username"));
             user.setPassword((String) map.get("password"));
+            user.setImgpath((String) map.get("imgpath"));
         }
         return user;
     }
@@ -52,6 +53,13 @@ public class UserDao {
     public boolean updatePassword(String password,Integer id){
         String sql="UPDATE usertable SET password=? WHERE id=?";
         int i=helper.update(sql,password,id);
+        helper.destory();
+        return i==1;
+    }
+
+    public boolean updateImgPath(String imgpath,Integer id){
+        String sql="UPDATE usertable SET imgpath=? WHERE id=?";
+        int i=helper.update(sql,imgpath,id);
         helper.destory();
         return i==1;
     }

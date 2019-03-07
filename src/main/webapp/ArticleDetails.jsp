@@ -71,15 +71,35 @@
 
 
     <hr />
+    <br>
+    <c:if test="${not empty articleMessage}">
+        <h5>留言板</h5>
+    </c:if>
+    <br>
 
-    <br><br>
     <c:forEach items="${articleMessage}" var="f">
         <div>
-            <p>${f.message}</p>
-            <p align="right">发表时间：${f.mdate} 来自：${f.messageperson}</p>
+
+            <div align="center" style="display: inline-block; width: 140px;height: 120px;">
+               <img src="${f.imgpath}" width="72" height="72"><br>
+                <p>用户名：${f.messageperson}</p>
+            </div>
+
+            <div style="display: inline-block;border-right:1px solid gainsboro;width: 1px;height: 90px;">
+            </div>
+
+            <div style="display:inline-block;">
+                <div  style="display:block;width: 780px;height: 72px">${f.message}</div>
+
+                <P align="right">发表时间：${f.mdate}</P>
+            </div>
+
         </div>
         <hr />
     </c:forEach>
+
+
+    <p></p>
 
 
 

@@ -33,7 +33,7 @@ public class UpdatePasswordServlet extends HttpServlet {
             System.out.println(oldPassword);
             System.out.println(!sessionUser.getPassword().equals(oldPassword));
             request.setAttribute("error","旧密码输入错误，修改失败！");
-            request.getRequestDispatcher("AlterPassword.jsp").forward(request,response);
+            request.getRequestDispatcher("PersonalCenter.jsp").forward(request,response);
             return;
         }
 
@@ -42,7 +42,7 @@ public class UpdatePasswordServlet extends HttpServlet {
         if(!password.trim().equals(confirm.trim())){//注意 ：这里有个感叹号
             //页面通过重定向到某个页面
             request.setAttribute("error","两次密码不一致，修改失败！");
-            request.getRequestDispatcher("AlterPassword.jsp").forward(request,response);
+            request.getRequestDispatcher("PersonalCenter.jsp").forward(request,response);
             return;
         }
 
@@ -58,7 +58,7 @@ public class UpdatePasswordServlet extends HttpServlet {
         }else {
             //页面通过重定向到某个页面
             request.setAttribute("error","数据库繁忙，修改失败！");
-            request.getRequestDispatcher("AlterPassword.jsp").forward(request,response);
+            request.getRequestDispatcher("PersonalCenter.jsp").forward(request,response);
             return;
         }
 

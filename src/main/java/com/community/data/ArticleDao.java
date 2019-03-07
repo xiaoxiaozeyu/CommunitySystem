@@ -60,7 +60,7 @@ public class ArticleDao {
     }
 
     private List<Article> getArticles(String sql) {
-        System.out.println(sql);
+        //System.out.println(sql);
         List<Map<String, Object>> list=helper.query(sql);
         helper.destory();
         List<Article> articles=new ArrayList<>();

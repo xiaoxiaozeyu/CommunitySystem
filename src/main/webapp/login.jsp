@@ -31,6 +31,8 @@
         alert("${success}");
     }
 </script>
+<c:remove var="success" scope="session"></c:remove>
+<c:remove var="error" scope="session"></c:remove>
 
 
 <form class="form-signin" method="post" action="/login">

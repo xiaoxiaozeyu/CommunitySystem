@@ -10,6 +10,7 @@ public class User implements Serializable {
     private Integer id;//对象标识符
     private String username;//用户名
     private String password;//密码
+    private String imgpath;//头像路径
 
     public Integer getId() {
         return id;
@@ -33,5 +34,13 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImgpath() {
+        return imgpath;
+    }
+
+    public void setImgpath(String imgpath) {
+        this.imgpath = imgpath;
     }
 }

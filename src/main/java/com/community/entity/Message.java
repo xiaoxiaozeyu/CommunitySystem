@@ -9,6 +9,7 @@ public class Message implements Serializable {
     private Date mdate;
     private String messageperson;
     private Integer articleid;
+    private String imgpath;
 
     public Integer getId() {
         return id;
@@ -48,5 +49,13 @@ public class Message implements Serializable {
 
     public void setArticleid(Integer articleid) {
         this.articleid = articleid;
+    }
+
+    public String getImgpath() {
+        return imgpath;
+    }
+
+    public void setImgpath(String imgpath) {
+        this.imgpath = imgpath;
     }
 }

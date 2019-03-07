@@ -23,6 +23,7 @@
         alert("${error}");
     }
 </script>
+<c:remove var="error" scope="session"></c:remove>
 
 <div class="container">
     <div class="py-5 text-center">

@@ -32,12 +32,14 @@ public class UploadMessageServlet extends HttpServlet {
         message.setMdate(messageTime);
         message.setMessageperson(sessionUser.getUsername());
         message.setArticleid(Integer.parseInt(articleID));
+        message.setImgpath(sessionUser.getImgpath());
 
         MessageDao messageDao=new MessageDao();
         boolean isPublishMessage=messageDao.publish(message);
         if(isPublishMessage) {
             session.setAttribute("success", "留言成功！");
-            request.getRequestDispatcher("/detail?titleID="+message.getArticleid()).forward(request, response);
+            response.sendRedirect("/detail?titleID="+message.getArticleid());
+            //request.getRequestDispatcher().forward(request, response);
         }
     }
 }
